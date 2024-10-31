@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "SALUS RESEARCH CATALOG"
+  title: "SALUS CATALOG"
   navbar:
     left:
       - href: index.qmd

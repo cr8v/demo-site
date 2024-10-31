@@ -1,8 +1,8 @@
 ---
-title: "Healthcare Research Database"
+title: "SALUSCARE RESEARCH DATABASE CATALOG"
 ---
 
-## Welcome
+## Welcome!
 
 This database provides comprehensive healthcare research data for analysis and insights.
 
