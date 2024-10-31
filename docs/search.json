@@ -1,16 +1,58 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "SALUSCARE RESEARCH DATABASE CATALOG",
+    "objectID": "tables.html",
+    "href": "tables.html",
+    "title": "Tables Overview",
     "section": "",
-    "text": "This database provides comprehensive healthcare research data for analysis and insights.\n\n\n\n\n\n\nQuick Start\n\n\n\n\nBrowse available datasets\nCheck documentation\nStart your analysis"
+    "text": "Here’s an overview of the main tables in our database:\n\n\n\nTable Name\nDescription\nPrimary Key\nRecords\n\n\n\n\nPatients\nPatient demographics\npatient_id\n10,000\n\n\nVisits\nHealthcare visits\nvisit_id\n50,000\n\n\nDiagnoses\nClinical diagnoses\ndiagnosis_id\n100,000"
   },
   {
-    "objectID": "index.html#welcome",
-    "href": "index.html#welcome",
-    "title": "SALUSCARE RESEARCH DATABASE CATALOG",
+    "objectID": "tables.html#database-structure",
+    "href": "tables.html#database-structure",
+    "title": "Tables Overview",
     "section": "",
-    "text": "This database provides comprehensive healthcare research data for analysis and insights.\n\n\n\n\n\n\nQuick Start\n\n\n\n\nBrowse available datasets\nCheck documentation\nStart your analysis"
+    "text": "Here’s an overview of the main tables in our database:\n\n\n\nTable Name\nDescription\nPrimary Key\nRecords\n\n\n\n\nPatients\nPatient demographics\npatient_id\n10,000\n\n\nVisits\nHealthcare visits\nvisit_id\n50,000\n\n\nDiagnoses\nClinical diagnoses\ndiagnosis_id\n100,000"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "SALUS CATALOG",
+    "section": "",
+    "text": "This catalog provides comprehensive documentation for the SALUS healthcare research database.\n\n\n\n\n\n\nQuick Navigation\n\n\n\n\nCheck Tables Overview for database structure\nBrowse Variables for detailed field descriptions\nRead Documentation for usage guidelines"
+  },
+  {
+    "objectID": "index.html#welcome-to-salus-research-database",
+    "href": "index.html#welcome-to-salus-research-database",
+    "title": "SALUS CATALOG",
+    "section": "",
+    "text": "This catalog provides comprehensive documentation for the SALUS healthcare research database.\n\n\n\n\n\n\nQuick Navigation\n\n\n\n\nCheck Tables Overview for database structure\nBrowse Variables for detailed field descriptions\nRead Documentation for usage guidelines"
+  },
+  {
+    "objectID": "variables.html",
+    "href": "variables.html",
+    "title": "Variables Dictionary",
+    "section": "",
+    "text": "Variable\nType\nDescription\nValues\n\n\n\n\npatient_id\nINT\nUnique identifier\nNumeric\n\n\nage\nINT\nPatient age\n0-120\n\n\ngender\nVARCHAR\nPatient gender\nM/F\n\n\n\n\n\n\n[Additional variable documentation…]"
+  },
+  {
+    "objectID": "variables.html#data-dictionary",
+    "href": "variables.html#data-dictionary",
+    "title": "Variables Dictionary",
+    "section": "",
+    "text": "Variable\nType\nDescription\nValues\n\n\n\n\npatient_id\nINT\nUnique identifier\nNumeric\n\n\nage\nINT\nPatient age\n0-120\n\n\ngender\nVARCHAR\nPatient gender\nM/F\n\n\n\n\n\n\n[Additional variable documentation…]"
+  },
+  {
+    "objectID": "docs.html",
+    "href": "docs.html",
+    "title": "Documentation",
+    "section": "",
+    "text": "IRB approval required\nData use agreement\nTraining certification\n\n\n\n\n\nData encryption standards\nAccess logging\nPrivacy protection measures\n\n\n\n\nContact research@saluscare.co.kr for: - Technical support - Access requests - Data questions"
+  },
+  {
+    "objectID": "docs.html#usage-guidelines",
+    "href": "docs.html#usage-guidelines",
+    "title": "Documentation",
+    "section": "",
+    "text": "IRB approval required\nData use agreement\nTraining certification\n\n\n\n\n\nData encryption standards\nAccess logging\nPrivacy protection measures\n\n\n\n\nContact research@saluscare.co.kr for: - Technical support - Access requests - Data questions"
   }
 ]

@@ -1,0 +1,16 @@
+---
+title: "Variables Dictionary"
+---
+
+## Data Dictionary
+
+### Patient Variables
+
+| Variable | Type | Description | Values |
+|----------|------|-------------|---------|
+| patient_id | INT | Unique identifier | Numeric |
+| age | INT | Patient age | 0-120 |
+| gender | VARCHAR | Patient gender | M/F |
+
+### Clinical Variables
+[Additional variable documentation...]

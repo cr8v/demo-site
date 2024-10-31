@@ -1,0 +1,21 @@
+---
+title: "Documentation"
+---
+
+## Usage Guidelines
+
+### Access Requirements
+- IRB approval required
+- Data use agreement
+- Training certification
+
+### Data Security
+- Data encryption standards
+- Access logging
+- Privacy protection measures
+
+### Support
+Contact research@saluscare.co.kr for:
+- Technical support
+- Access requests
+- Data questions

@@ -29,5 +29,3 @@ format:
     include-in-header:
       - text: |
           <script src="js/site.js"></script>
-
-

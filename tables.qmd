@@ -1,0 +1,13 @@
+---
+title: "Tables Overview"
+---
+
+## Database Structure
+
+Here's an overview of the main tables in our database:
+
+| Table Name | Description | Primary Key | Records |
+|------------|-------------|-------------|----------|
+| Patients | Patient demographics | patient_id | 10,000 |
+| Visits | Healthcare visits | visit_id | 50,000 |
+| Diagnoses | Clinical diagnoses | diagnosis_id | 100,000 |
