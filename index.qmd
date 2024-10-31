@@ -1,0 +1,14 @@
+---
+title: "Healthcare Research Database"
+---
+
+## Welcome
+
+This database provides comprehensive healthcare research data for analysis and insights.
+
+:::{.callout-note}
+## Quick Start
+1. Browse available datasets
+2. Check documentation
+3. Start your analysis
+:::

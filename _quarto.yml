@@ -1,0 +1,17 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Healthcare Research Database"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - data.qmd
+      - about.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
