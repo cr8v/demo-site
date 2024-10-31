@@ -1,17 +1,33 @@
 project:
   type: website
   output-dir: docs
+  resources:
+    - CNAME
 
 website:
   title: "SALUS CATALOG"
   navbar:
+    background: primary
+    search: true
     left:
-      - href: index.qmd
-        text: Home
-      - data.qmd
-      - about.qmd
+      - text: "Home"
+        file: index.qmd
+        icon: house
+      - text: "Data Dictionary"
+        menu:
+          - text: "Tables Overview"
+            file: tables.qmd
+          - text: "Variables"
+            file: variables.qmd
+      - text: "Documentation"
+        file: docs.qmd
 
 format:
   html:
     theme: cosmo
     css: styles.css
+    include-in-header:
+      - text: |
+          <script src="js/site.js"></script>
+
+
