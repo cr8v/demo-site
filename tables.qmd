@@ -2,21 +2,34 @@
 title: "Tables Overview"
 ---
 
+```{r}
+#| label: setup
+#| include: false
+library(dplyr)
+library(reactable)
+rootdir <- "/home/rstudio/SALUS/_Inbox/01_Preprocessing/A01_데이터정리/"
+quarto_tables <- readRDS(sprintf("%sdata/processed/_objects/_rds/quarto_tables.rds", rootdir))
+```
+
 ## Database Structure
 
 The SALUS healthcare research database consists of the following core tables:
 
 ### 1. Patients Table
 - **Description**: Contains patient demographic information
-- **Primary Key**: Patient ID (PID)
-- **Record Count**: 10,000 records
-- **Key Fields**: Demographics, patient history, registration details
+- **Key Fields**: Patient ID, Sex, Date of Birth
+- **Record Count**: `r nrow(quarto_tables$table_participants)`
+
+```{r}
+quarto_tables$table_participants %>% 
+  head(5) %>% select(-BRTHDD) %>%
+  reactable()
+```
 
 ### 2. Visits Table  
 - **Description**: Tracks all healthcare visit encounters
-- **Primary Key**: visit_id
-- **Record Count**: 50,000 records
-- **Key Fields**: Visit dates, providers, visit types, outcomes
+- **Key Fields**: Patient ID, Date of Visit, Count of Visit
+- **Record Count**: ##,### records
 
 ### 3. Survey Table
 - **Description**: Contains patient-reported outcomes and survey responses

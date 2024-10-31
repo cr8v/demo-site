@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -66,6 +100,14 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="site_libs/core-js-2.5.3/shim.min.js"></script>
+<script src="site_libs/react-18.2.0/react.min.js"></script>
+<script src="site_libs/react-18.2.0/react-dom.min.js"></script>
+<script src="site_libs/reactwidget-2.0.0/react-tools.umd.cjs"></script>
+<link href="site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<link href="site_libs/reactable-0.4.4/reactable.css" rel="stylesheet">
+<script src="site_libs/reactable-binding-0.4.4/reactable.js"></script>
 <script src="js/site.js"></script>
 
 
@@ -190,18 +232,25 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="patients-table">1. Patients Table</h3>
 <ul>
 <li><strong>Description</strong>: Contains patient demographic information</li>
-<li><strong>Primary Key</strong>: Patient ID (PID)</li>
-<li><strong>Record Count</strong>: 10,000 records</li>
-<li><strong>Key Fields</strong>: Demographics, patient history, registration details</li>
+<li><strong>Key Fields</strong>: Patient ID, Sex, Date of Birth</li>
+<li><strong>Record Count</strong>: 3466137</li>
 </ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>quarto_tables<span class="sc">$</span>table_participants <span class="sc">%&gt;%</span> </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">5</span>) <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>BRTHDD) <span class="sc">%&gt;%</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">reactable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="reactable html-widget html-fill-item" id="htmlwidget-f2de81bfd99af7471d44" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-f2de81bfd99af7471d44">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"PID_ANONY":["0003448032","0002446507","0002446519","0002446521","0002446523"],"SEX":["M","F","M","F","M"],"DATE_BIRTH":["1973-08-23","1967-10-13","1981-10-27","1968-05-01","1988-07-11"]},"columns":[{"id":"PID_ANONY","name":"PID_ANONY","type":"character"},{"id":"SEX","name":"SEX","type":"character"},{"id":"DATE_BIRTH","name":"DATE_BIRTH","type":"Date"}],"dataKey":"d9496c79a7fdce7b1f163d24ced7da33"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
 </section>
 <section id="visits-table" class="level3">
 <h3 class="anchored" data-anchor-id="visits-table">2. Visits Table</h3>
 <ul>
 <li><strong>Description</strong>: Tracks all healthcare visit encounters</li>
-<li><strong>Primary Key</strong>: visit_id</li>
-<li><strong>Record Count</strong>: 50,000 records</li>
-<li><strong>Key Fields</strong>: Visit dates, providers, visit types, outcomes</li>
+<li><strong>Key Fields</strong>: Patient ID, Date of Visit, Count of Visit</li>
+<li><strong>Record Count</strong>: ##,### records</li>
 </ul>
 </section>
 <section id="survey-table" class="level3">

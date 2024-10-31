@@ -4,7 +4,7 @@ title: "SALUS CATALOG"
 
 ## Welcome to SALUS Research Database
 
-This catalog provides comprehensive documentation for the SALUS healthcare research database, containing over 250,000 healthcare records across multiple integrated tables.
+This catalog provides comprehensive documentation for the SALUS healthcare research database, containing over millions of health screening records across 9 years of multiple integrated tables.
 
 ### Key Features
 - Comprehensive patient demographics and clinical data
