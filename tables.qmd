@@ -4,10 +4,43 @@ title: "Tables Overview"
 
 ## Database Structure
 
-Here's an overview of the main tables in our database:
+The SALUS healthcare research database consists of the following core tables:
 
-| Table Name | Description | Primary Key | Records |
-|------------|-------------|-------------|----------|
-| Patients | Patient demographics | patient_id | 10,000 |
-| Visits | Healthcare visits | visit_id | 50,000 |
-| Diagnoses | Clinical diagnoses | diagnosis_id | 100,000 |
+### 1. Patients Table
+- **Description**: Contains patient demographic information
+- **Primary Key**: Patient ID (PID)
+- **Record Count**: 10,000 records
+- **Key Fields**: Demographics, patient history, registration details
+
+### 2. Visits Table  
+- **Description**: Tracks all healthcare visit encounters
+- **Primary Key**: visit_id
+- **Record Count**: 50,000 records
+- **Key Fields**: Visit dates, providers, visit types, outcomes
+
+### 3. Survey Table
+- **Description**: Contains patient-reported outcomes and survey responses
+- **Primary Key**: survey_id
+- **Record Count**: 25,000 records
+- **Key Fields**: Survey type, responses, completion dates, scores
+
+### 4. Measure Table
+- **Description**: Stores clinical measurements and vital signs
+- **Primary Key**: measure_id 
+- **Record Count**: 100,000 records
+- **Key Fields**: Vital signs, BMI, blood pressure, temperature
+
+### 5. Lab Table
+- **Description**: Records laboratory test results and diagnostics
+- **Primary Key**: lab_id
+- **Record Count**: 75,000 records
+- **Key Fields**: Test types, results, reference ranges, collection dates
+
+### 6. Doctor Table
+- **Description**: Contains healthcare provider information
+- **Primary Key**: doctor_id
+- **Record Count**: 500 records
+- **Key Fields**: Specialties, credentials, departments, contact details
+
+
+Each table is carefully structured to maintain referential integrity while capturing comprehensive healthcare data. The tables are interconnected through foreign key relationships to enable complex queries and analysis.

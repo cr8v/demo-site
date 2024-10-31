@@ -1,0 +1,62 @@
+---
+title: "Documentation"
+---
+
+## Usage Guidelines
+
+### Access Requirements
+- Institutional Review Board (IRB) approval is required before any data access can be granted
+- A signed Data Use Agreement (DUA) must be completed and approved by SALUS Research
+- All users must complete HIPAA compliance training and database security certification
+- Annual renewal of certifications and agreements required
+
+### Data Security
+- All data is encrypted at rest using AES-256 encryption
+- Access logs are maintained for all database queries and data exports
+- Multi-factor authentication required for database access
+- IP address restrictions and access controls implemented
+- Regular security audits and penetration testing performed
+- Data cannot be downloaded or stored on local machines
+- All analysis must be performed in secure computing environment
+
+### Data Access Process
+1. Submit IRB protocol and approval letter
+2. Complete HIPAA and security training modules
+3. Sign and submit Data Use Agreement
+4. Request database credentials
+5. Complete user orientation
+6. Receive access approval
+
+### Usage Requirements
+- All publications must acknowledge SALUS Research Database
+- Results must be reviewed for privacy before publication
+- No attempts to re-identify subjects
+- Report any security concerns immediately
+- Maintain data access logs
+- Follow data retention policies
+
+### Analysis Guidelines
+- Use approved statistical software only
+- Document all data cleaning steps
+- Save analysis code and workflows
+- Follow standardized variable definitions
+- Validate results with sample datasets first
+- Consider statistical power requirements
+
+### Support Resources
+Contact us for:
+
+- Technical support and troubleshooting
+- Access requests and credential issues
+- Data questions and clarification
+- Variable definitions and coding
+- Analysis consultation
+- Security incident reporting
+- Training registration
+
+### Compliance Monitoring
+- Regular audits of user activity
+- Annual compliance reviews
+- Update requirements as needed
+- Violation reporting process
+- Access suspension procedures

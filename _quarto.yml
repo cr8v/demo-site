@@ -14,17 +14,34 @@ website:
         file: index.qmd
         icon: house
       - text: "Data Dictionary"
+        icon: book
         menu:
           - text: "Tables Overview"
             file: tables.qmd
           - text: "Variables"
             file: variables.qmd
       - text: "Documentation"
-        file: docs.qmd
-
+        icon: file-text
+        menu:
+          - text: "Usage Guidelines"
+            file: guidelines.qmd
+          - text: "Cleaning History"
+            file: cleaning.qmd
+      - text: "DB Insights"
+        icon: chart-line
+        menu:
+          - text: "EDA"
+            file: eda.qmd
+          - text: "Statistical Analysis"
+            file: stats.qmd
+          - text: "Visualizations"
+            file: viz.qmd
 format:
   html:
     theme: cosmo
+    #code-fold: true
+    #code-tools: true
+    #code-link: true
     css: styles.css
     include-in-header:
       - text: |

@@ -4,11 +4,29 @@ title: "SALUS CATALOG"
 
 ## Welcome to SALUS Research Database
 
-This catalog provides comprehensive documentation for the SALUS healthcare research database.
+This catalog provides comprehensive documentation for the SALUS healthcare research database, containing over 250,000 healthcare records across multiple integrated tables.
+
+### Key Features
+- Comprehensive patient demographics and clinical data
+- Longitudinal healthcare visits and outcomes
+- Patient-reported survey responses
+- Clinical measurements and vital signs
+- Laboratory results and diagnostics
+- Healthcare provider information
 
 :::{.callout-note}
 ## Quick Navigation
-1. Check [Tables Overview](tables.qmd) for database structure
+1. Check [Tables Overview](tables.qmd) for database structure and table relationships
 2. Browse [Variables](variables.qmd) for detailed field descriptions
-3. Read [Documentation](docs.qmd) for usage guidelines
+3. Review [Usage Guidelines](guidelines.qmd) for access requirements and security protocols
+4. Learn about our [Data Cleaning Process](cleaning.qmd) and quality standards
+:::
+
+:::{.callout-important}
+## Access Requirements
+- IRB approval required
+- HIPAA compliance training
+- Signed Data Use Agreement
+- Security certification
+See [Usage Guidelines](guidelines.qmd) for complete requirements.
 :::

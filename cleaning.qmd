@@ -1,0 +1,272 @@
+---
+title: "Data Cleaning Process"
+format:
+  html:
+    code-fold: true
+    tbl-cap-location: top
+---
+
+## Standard Cleaning Procedures
+
+### 1. Initial Data Assessment
+- Review data completeness and quality metrics
+- Generate summary statistics for all variables
+- Identify missing or incomplete records
+- Flag potential data quality issues
+- Document initial state of dataset
+
+### 2. Automated Cleaning Steps
+1. **Standardization**
+   - Convert all dates to YYYY-MM-DD format
+   - Standardize text case (upper/lower) as appropriate
+   - Normalize units of measurement
+   - Apply consistent coding schemes
+
+2. **Missing Data Handling**
+   - Flag missing values
+   - Assess patterns of missingness
+   - Apply appropriate imputation where valid
+   - Document all missing data decisions
+
+3. **Outlier Detection**
+   - Calculate statistical bounds for numeric variables
+   - Flag biological impossibilities
+   - Review extreme values
+   - Document outlier handling decisions
+
+4. **Deduplication**
+   - Identify potential duplicate records
+   - Compare record pairs
+   - Merge or remove duplicates
+   - Maintain audit trail of changes
+
+### 3. Manual Review Process
+1. **Expert Review**
+   - Clinical review of flagged values
+   - Assessment of unusual patterns
+   - Validation of automated decisions
+   - Documentation of override reasons
+
+2. **Quality Checks**
+   - Cross-reference with source data
+   - Verify referential integrity
+   - Validate derived variables
+   - Check logical consistency
+
+### 4. Documentation Requirements
+Each cleaning step must include:
+
+- Description of issue addressed
+- Methodology used
+- Number of records affected
+- Before/after comparisons
+- Justification for changes
+- SQL or code snippets used
+- Reviewer sign-off
+
+### 5. Validation Steps
+1. **Technical Validation**
+   - Run automated test suites
+   - Verify data types and formats
+   - Check constraint compliance
+   - Validate calculations
+
+2. **Clinical Validation**
+   - Review by subject matter experts
+   - Check clinical plausibility
+   - Verify coding accuracy
+   - Validate derived measures
+
+### 6. Final Quality Control
+- Generate final quality metrics
+- Produce validation reports
+- Document all cleaning steps
+- Archive original and cleaned datasets
+- Create reproducible cleaning workflow
+
+### 7. Ongoing Maintenance
+- Regular quality monitoring
+- Periodic data audits
+- Update cleaning procedures
+- Maintain cleaning documentation
+- Track data quality metrics
+
+### Quality Standards
+All cleaned data must meet:
+
+- 99.9% completeness for required fields
+- 100% referential integrity
+- No invalid codes or values
+- Full documentation of changes
+- Reproducible cleaning process
+
+### Tools and Resources
+- Custom SQL cleaning scripts
+- Statistical analysis software
+- Data validation tools
+- Documentation templates
+- Quality control checklists
+
+
+## Data Files Overview
+### Data Dictionary
+
+The dataset contains several key variable categories:
+
+1. **Diagnosis Variables**
+   - Includes diagnosis codes, dates, severity
+   - Links to visits through visit_id
+   - Tracks chronic conditions and resolution
+
+2. **Medication Variables** 
+   - Prescription details and status
+   - Dosage, frequency, dates
+   - Pharmacy and prescriber tracking
+
+3. **Lab Results**
+   - Test results with reference ranges
+   - Collection and result dates
+   - Abnormality flagging
+
+4. **Vital Signs**
+   - Standard clinical measurements
+   - Height, weight, BMI
+   - Cardiovascular and respiratory metrics
+
+See the full data dictionary for detailed variable specifications.
+
+
+
+```{r}
+#| label: setup
+#| include: false
+library(tidyverse)
+library(duckdb)
+library(data.table)
+library(arrow)
+library(reactable)
+
+rootdir <- "/home/rstudio/SALUS/_Inbox/01_Preprocessing/A01_데이터정리/"
+
+took <- function(expr) {
+  start_time <- Sys.time()
+  result <- expr
+  end_time <- Sys.time()
+  execution_time <- difftime(end_time, start_time, units = "secs")
+  print(paste("Execution time:", round(execution_time, 2), "seconds"))
+  return(result)
+}
+
+f_size <- function(x) {
+  x %>% object.size() %>% format(units = "MB")
+}
+```
+
+:::{.callout-note}
+## File Categories
+- **AINQ**: Inquiry data files
+- **RSLT**: Results data files
+- **JUDD**: Judgment data files
+:::
+
+```{r}
+#| label: file-listing
+#| tbl-cap: "SALUS Data Files Overview"
+#| column: page
+
+list_files <- list()
+
+list_files$CSV <- lapply(
+  c("AINQ", "RSLT", "JUDD"),
+  function(dir) {
+    list.files(
+      file.path(rootdir, "data/processed/encoding/UTF-8_unix/csv", dir),
+      recursive = TRUE,
+      full.names = TRUE
+    )
+  }
+) %>% setNames(c("ainq", "rslt", "judd"))
+
+list_tables <- function(name) {
+  dbpath <- sprintf(rootdir,"data/processed/_objects/_duckdb/%s.duckdb", name)
+  dbconn <- dbConnect(duckdb(), dbpath)
+  cat("📌", name, "tables:")
+  tables <- dbconn %>% dbListTables()
+  dbDisconnect(dbconn, shutdown = TRUE)
+  return(tables)
+}
+library(stringr)
+
+list_files$CSV$SET <- Map(
+  function(ainq_file, rslt_file, judd_file) {
+    c(ainq_file, rslt_file, judd_file)
+  },
+  list_files$CSV$ainq,
+  list_files$CSV$rslt, 
+  list_files$CSV$judd
+) %>% setNames(
+  basename(list_files$CSV$ainq) %>% 
+    str_remove("AINQ_") %>%
+    str_remove("\\.csv$")
+)
+
+print("📌 Created", length(list_files$CSV$SET), "file sets\n")
+reactable(
+  data.frame(
+    Year = str_extract(names(list_files$CSV$SET), "^\\d{4}"),
+    InstCode = str_extract(names(list_files$CSV$SET), "\\d{3}$"),
+    AINQ = basename(sapply(list_files$CSV$SET, `[`, 1)),
+    RSLT = basename(sapply(list_files$CSV$SET, `[`, 2)), 
+    JUDD = basename(sapply(list_files$CSV$SET, `[`, 3))
+  ),
+  defaultPageSize = 10,
+  striped = TRUE,
+  bordered = TRUE,
+  searchable = TRUE,
+  showPageSizeOptions = TRUE,
+  pageSizeOptions = c(10, 20, 50),
+  defaultColDef = colDef(
+    align = "left",
+    minWidth = 120
+  ),
+  columns = list(
+    Year = colDef(
+      name = "Year",
+      style = list(fontWeight = "bold"),
+      sortable = TRUE
+    ),
+    InstCode = colDef(
+      name = "Institution Code",
+      style = list(fontWeight = "bold"),
+      sortable = TRUE
+    ),
+    AINQ = colDef(
+      name = "AINQ File",
+      minWidth = 200
+    ),
+    RSLT = colDef(
+      name = "RSLT File", 
+      minWidth = 200
+    ),
+    JUDD = colDef(
+      name = "JUDD File",
+      minWidth = 200
+    )
+  ),
+  theme = reactableTheme(
+    borderColor = "#dfe2e5",
+    stripedColor = "#f6f8fa",
+    headerStyle = list(
+      backgroundColor = "#f8f9fa",
+      fontWeight = "bold"
+    )
+  ),
+  defaultSorted = list(
+    Year = "desc",
+    InstCode = "asc"
+  )
+)
+
+
+```
+

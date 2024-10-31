@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>SALUS CATALOG - Variables Dictionary</title>
+<title>SALUS CATALOG - Documentation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -166,7 +166,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Variables Dictionary</h1>
+<h1 class="title">Documentation</h1>
 </div>
 
 
@@ -183,517 +183,84 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="data-dictionary" class="level2">
-<h2 class="anchored" data-anchor-id="data-dictionary">Data Dictionary</h2>
-<section id="patient-variables" class="level3">
-<h3 class="anchored" data-anchor-id="patient-variables">Patient Variables</h3>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 26%">
-<col style="width: 15%">
-<col style="width: 34%">
-<col style="width: 23%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Variable</th>
-<th>Type</th>
-<th>Description</th>
-<th>Values</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>patient_id</td>
-<td>INT</td>
-<td>Unique identifier for each patient</td>
-<td>Numeric, auto-incrementing</td>
-</tr>
-<tr class="even">
-<td>age</td>
-<td>INT</td>
-<td>Patient age in years at time of registration</td>
-<td>0-120</td>
-</tr>
-<tr class="odd">
-<td>gender</td>
-<td>VARCHAR(1)</td>
-<td>Patient’s biological sex at birth</td>
-<td>‘M’ = Male, ‘F’ = Female</td>
-</tr>
-<tr class="even">
-<td>birth_date</td>
-<td>DATE</td>
-<td>Patient’s date of birth</td>
-<td>YYYY-MM-DD format</td>
-</tr>
-<tr class="odd">
-<td>race</td>
-<td>VARCHAR(50)</td>
-<td>Patient’s self-reported race/ethnicity</td>
-<td>White, Black, Asian, Hispanic, Other</td>
-</tr>
-<tr class="even">
-<td>insurance</td>
-<td>VARCHAR(50)</td>
-<td>Primary insurance type</td>
-<td>Medicare, Medicaid, Private, Self-pay</td>
-</tr>
-<tr class="odd">
-<td>zip_code</td>
-<td>VARCHAR(5)</td>
-<td>Patient’s residential ZIP code</td>
-<td>5-digit US postal code</td>
-</tr>
-<tr class="even">
-<td>marital_status</td>
-<td>VARCHAR(20)</td>
-<td>Patient’s marital status</td>
-<td>Single, Married, Divorced, Widowed</td>
-</tr>
-<tr class="odd">
-<td>language</td>
-<td>VARCHAR(50)</td>
-<td>Patient’s primary language</td>
-<td>English, Spanish, Other</td>
-</tr>
-<tr class="even">
-<td>employment</td>
-<td>VARCHAR(50)</td>
-<td>Employment status</td>
-<td>Employed, Unemployed, Retired, Student</td>
-</tr>
-</tbody>
-</table>
+<section id="usage-guidelines" class="level2">
+<h2 class="anchored" data-anchor-id="usage-guidelines">Usage Guidelines</h2>
+<section id="access-requirements" class="level3">
+<h3 class="anchored" data-anchor-id="access-requirements">Access Requirements</h3>
+<ul>
+<li>Institutional Review Board (IRB) approval is required before any data access can be granted</li>
+<li>A signed Data Use Agreement (DUA) must be completed and approved by SALUS Research</li>
+<li>All users must complete HIPAA compliance training and database security certification</li>
+<li>Annual renewal of certifications and agreements required</li>
+</ul>
 </section>
-<section id="visit-variables" class="level3">
-<h3 class="anchored" data-anchor-id="visit-variables">Visit Variables</h3>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 26%">
-<col style="width: 15%">
-<col style="width: 34%">
-<col style="width: 23%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Variable</th>
-<th>Type</th>
-<th>Description</th>
-<th>Values</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>visit_id</td>
-<td>INT</td>
-<td>Unique identifier for each visit</td>
-<td>Numeric, auto-incrementing</td>
-</tr>
-<tr class="even">
-<td>patient_id</td>
-<td>INT</td>
-<td>Foreign key linking to patients table</td>
-<td>References patient_id</td>
-</tr>
-<tr class="odd">
-<td>visit_date</td>
-<td>DATE</td>
-<td>Date of healthcare encounter</td>
-<td>YYYY-MM-DD format</td>
-</tr>
-<tr class="even">
-<td>visit_type</td>
-<td>VARCHAR(50)</td>
-<td>Category of healthcare visit</td>
-<td>Outpatient, Emergency, Inpatient</td>
-</tr>
-<tr class="odd">
-<td>provider_id</td>
-<td>INT</td>
-<td>ID of primary care provider</td>
-<td>References providers table</td>
-</tr>
-<tr class="even">
-<td>facility_id</td>
-<td>INT</td>
-<td>Location where care was provided</td>
-<td>References facilities table</td>
-</tr>
-<tr class="odd">
-<td>admission_date</td>
-<td>DATE</td>
-<td>Start date for inpatient stays</td>
-<td>YYYY-MM-DD format</td>
-</tr>
-<tr class="even">
-<td>discharge_date</td>
-<td>DATE</td>
-<td>End date for inpatient stays</td>
-<td>YYYY-MM-DD format</td>
-</tr>
-<tr class="odd">
-<td>length_of_stay</td>
-<td>INT</td>
-<td>Days spent in hospital</td>
-<td>Numeric (days)</td>
-</tr>
-<tr class="even">
-<td>discharge_disposition</td>
-<td>VARCHAR(50)</td>
-<td>Discharge status/location</td>
-<td>Home, SNF, Rehab, Expired</td>
-</tr>
-</tbody>
-</table>
+<section id="data-security" class="level3">
+<h3 class="anchored" data-anchor-id="data-security">Data Security</h3>
+<ul>
+<li>All data is encrypted at rest using AES-256 encryption</li>
+<li>Access logs are maintained for all database queries and data exports</li>
+<li>Multi-factor authentication required for database access</li>
+<li>IP address restrictions and access controls implemented</li>
+<li>Regular security audits and penetration testing performed</li>
+<li>Data cannot be downloaded or stored on local machines</li>
+<li>All analysis must be performed in secure computing environment</li>
+</ul>
 </section>
-<section id="diagnosis-variables" class="level3">
-<h3 class="anchored" data-anchor-id="diagnosis-variables">Diagnosis Variables</h3>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 26%">
-<col style="width: 15%">
-<col style="width: 34%">
-<col style="width: 23%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Variable</th>
-<th>Type</th>
-<th>Description</th>
-<th>Values</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>diagnosis_id</td>
-<td>INT</td>
-<td>Unique identifier for diagnosis</td>
-<td>Numeric, auto-incrementing</td>
-</tr>
-<tr class="even">
-<td>visit_id</td>
-<td>INT</td>
-<td>Foreign key linking to visits</td>
-<td>References visit_id</td>
-</tr>
-<tr class="odd">
-<td>icd_code</td>
-<td>VARCHAR(10)</td>
-<td>ICD-10 diagnosis code</td>
-<td>Valid ICD-10 code</td>
-</tr>
-<tr class="even">
-<td>diagnosis_date</td>
-<td>DATE</td>
-<td>Date diagnosis was recorded</td>
-<td>YYYY-MM-DD format</td>
-</tr>
-<tr class="odd">
-<td>primary_dx</td>
-<td>BOOLEAN</td>
-<td>Indicates if primary diagnosis</td>
-<td>TRUE/FALSE</td>
-</tr>
-<tr class="even">
-<td>chronic_flag</td>
-<td>BOOLEAN</td>
-<td>Indicates chronic condition</td>
-<td>TRUE/FALSE</td>
-</tr>
-<tr class="odd">
-<td>severity</td>
-<td>INT</td>
-<td>Severity score of condition</td>
-<td>1-5 scale</td>
-</tr>
-<tr class="even">
-<td>onset_date</td>
-<td>DATE</td>
-<td>When symptoms first appeared</td>
-<td>YYYY-MM-DD format</td>
-</tr>
-<tr class="odd">
-<td>resolved_date</td>
-<td>DATE</td>
-<td>When condition resolved</td>
-<td>YYYY-MM-DD format</td>
-</tr>
-<tr class="even">
-<td>notes</td>
-<td>TEXT</td>
-<td>Clinical notes about diagnosis</td>
-<td>Free text</td>
-</tr>
-</tbody>
-</table>
+<section id="data-access-process" class="level3">
+<h3 class="anchored" data-anchor-id="data-access-process">Data Access Process</h3>
+<ol type="1">
+<li>Submit IRB protocol and approval letter</li>
+<li>Complete HIPAA and security training modules</li>
+<li>Sign and submit Data Use Agreement</li>
+<li>Request database credentials</li>
+<li>Complete user orientation</li>
+<li>Receive access approval</li>
+</ol>
 </section>
-<section id="medication-variables" class="level3">
-<h3 class="anchored" data-anchor-id="medication-variables">Medication Variables</h3>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 26%">
-<col style="width: 15%">
-<col style="width: 34%">
-<col style="width: 23%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Variable</th>
-<th>Type</th>
-<th>Description</th>
-<th>Values</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>med_id</td>
-<td>INT</td>
-<td>Unique identifier for prescription</td>
-<td>Numeric, auto-incrementing</td>
-</tr>
-<tr class="even">
-<td>patient_id</td>
-<td>INT</td>
-<td>Foreign key linking to patients</td>
-<td>References patient_id</td>
-</tr>
-<tr class="odd">
-<td>drug_name</td>
-<td>VARCHAR(100)</td>
-<td>Generic medication name</td>
-<td>Standard drug names</td>
-</tr>
-<tr class="even">
-<td>dosage</td>
-<td>VARCHAR(50)</td>
-<td>Prescribed medication dose</td>
-<td>Includes unit (mg, mcg, etc)</td>
-</tr>
-<tr class="odd">
-<td>frequency</td>
-<td>VARCHAR(50)</td>
-<td>How often medication taken</td>
-<td>QD, BID, TID, PRN, etc</td>
-</tr>
-<tr class="even">
-<td>start_date</td>
-<td>DATE</td>
-<td>When prescription started</td>
-<td>YYYY-MM-DD format</td>
-</tr>
-<tr class="odd">
-<td>end_date</td>
-<td>DATE</td>
-<td>When prescription ended</td>
-<td>YYYY-MM-DD format</td>
-</tr>
-<tr class="even">
-<td>active</td>
-<td>BOOLEAN</td>
-<td>Current prescription status</td>
-<td>TRUE/FALSE</td>
-</tr>
-<tr class="odd">
-<td>prescriber_id</td>
-<td>INT</td>
-<td>Provider who prescribed med</td>
-<td>References providers table</td>
-</tr>
-<tr class="even">
-<td>pharmacy_id</td>
-<td>INT</td>
-<td>Dispensing pharmacy</td>
-<td>References pharmacies table</td>
-</tr>
-<tr class="odd">
-<td>refills</td>
-<td>INT</td>
-<td>Number of refills remaining</td>
-<td>0-99</td>
-</tr>
-<tr class="even">
-<td>last_filled</td>
-<td>DATE</td>
-<td>Date of last dispensing</td>
-<td>YYYY-MM-DD format</td>
-</tr>
-</tbody>
-</table>
+<section id="usage-requirements" class="level3">
+<h3 class="anchored" data-anchor-id="usage-requirements">Usage Requirements</h3>
+<ul>
+<li>All publications must acknowledge SALUS Research Database</li>
+<li>Results must be reviewed for privacy before publication</li>
+<li>No attempts to re-identify subjects</li>
+<li>Report any security concerns immediately</li>
+<li>Maintain data access logs</li>
+<li>Follow data retention policies</li>
+</ul>
 </section>
-<section id="lab-results-variables" class="level3">
-<h3 class="anchored" data-anchor-id="lab-results-variables">Lab Results Variables</h3>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 26%">
-<col style="width: 15%">
-<col style="width: 34%">
-<col style="width: 23%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Variable</th>
-<th>Type</th>
-<th>Description</th>
-<th>Values</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>lab_id</td>
-<td>INT</td>
-<td>Unique identifier for lab result</td>
-<td>Numeric, auto-incrementing</td>
-</tr>
-<tr class="even">
-<td>patient_id</td>
-<td>INT</td>
-<td>Foreign key linking to patients</td>
-<td>References patient_id</td>
-</tr>
-<tr class="odd">
-<td>test_name</td>
-<td>VARCHAR(100)</td>
-<td>Name of laboratory test</td>
-<td>Standard lab test names</td>
-</tr>
-<tr class="even">
-<td>result_value</td>
-<td>VARCHAR(50)</td>
-<td>Numeric or categorical result</td>
-<td>Depends on test type</td>
-</tr>
-<tr class="odd">
-<td>units</td>
-<td>VARCHAR(20)</td>
-<td>Units of measurement</td>
-<td>mg/dL, mmol/L, etc</td>
-</tr>
-<tr class="even">
-<td>ref_range_low</td>
-<td>FLOAT</td>
-<td>Lower limit of normal range</td>
-<td>Numeric value</td>
-</tr>
-<tr class="odd">
-<td>ref_range_high</td>
-<td>FLOAT</td>
-<td>Upper limit of normal range</td>
-<td>Numeric value</td>
-</tr>
-<tr class="even">
-<td>collection_date</td>
-<td>DATE</td>
-<td>When sample was collected</td>
-<td>YYYY-MM-DD format</td>
-</tr>
-<tr class="odd">
-<td>result_date</td>
-<td>DATE</td>
-<td>When results were available</td>
-<td>YYYY-MM-DD format</td>
-</tr>
-<tr class="even">
-<td>abnormal_flag</td>
-<td>VARCHAR(1)</td>
-<td>Result normality indicator</td>
-<td>‘H’=High, ‘L’=Low, ‘N’=Normal</td>
-</tr>
-</tbody>
-</table>
+<section id="analysis-guidelines" class="level3">
+<h3 class="anchored" data-anchor-id="analysis-guidelines">Analysis Guidelines</h3>
+<ul>
+<li>Use approved statistical software only</li>
+<li>Document all data cleaning steps</li>
+<li>Save analysis code and workflows</li>
+<li>Follow standardized variable definitions</li>
+<li>Validate results with sample datasets first</li>
+<li>Consider statistical power requirements</li>
+</ul>
 </section>
-<section id="vital-signs-variables" class="level3">
-<h3 class="anchored" data-anchor-id="vital-signs-variables">Vital Signs Variables</h3>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 26%">
-<col style="width: 15%">
-<col style="width: 34%">
-<col style="width: 23%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Variable</th>
-<th>Type</th>
-<th>Description</th>
-<th>Values</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>vital_id</td>
-<td>INT</td>
-<td>Unique identifier for vital signs</td>
-<td>Numeric, auto-incrementing</td>
-</tr>
-<tr class="even">
-<td>visit_id</td>
-<td>INT</td>
-<td>Foreign key linking to visits</td>
-<td>References visit_id</td>
-</tr>
-<tr class="odd">
-<td>measure_date</td>
-<td>DATE</td>
-<td>When vitals were recorded</td>
-<td>YYYY-MM-DD format</td>
-</tr>
-<tr class="even">
-<td>temperature</td>
-<td>FLOAT</td>
-<td>Body temperature</td>
-<td>Fahrenheit</td>
-</tr>
-<tr class="odd">
-<td>heart_rate</td>
-<td>INT</td>
-<td>Heart rate</td>
-<td>Beats per minute</td>
-</tr>
-<tr class="even">
-<td>blood_pressure_sys</td>
-<td>INT</td>
-<td>Systolic blood pressure</td>
-<td>mmHg</td>
-</tr>
-<tr class="odd">
-<td>blood_pressure_dia</td>
-<td>INT</td>
-<td>Diastolic blood pressure</td>
-<td>mmHg</td>
-</tr>
-<tr class="even">
-<td>respiratory_rate</td>
-<td>INT</td>
-<td>Breathing rate</td>
-<td>Breaths per minute</td>
-</tr>
-<tr class="odd">
-<td>oxygen_saturation</td>
-<td>INT</td>
-<td>Blood oxygen level</td>
-<td>Percentage (0-100)</td>
-</tr>
-<tr class="even">
-<td>height</td>
-<td>FLOAT</td>
-<td>Patient height</td>
-<td>Inches</td>
-</tr>
-<tr class="odd">
-<td>weight</td>
-<td>FLOAT</td>
-<td>Patient weight</td>
-<td>Pounds</td>
-</tr>
-<tr class="even">
-<td>bmi</td>
-<td>FLOAT</td>
-<td>Body Mass Index</td>
-<td>Calculated from height/weight</td>
-</tr>
-</tbody>
-</table>
+<section id="support-resources" class="level3">
+<h3 class="anchored" data-anchor-id="support-resources">Support Resources</h3>
+<p>Contact us for:</p>
+<ul>
+<li>Technical support and troubleshooting</li>
+<li>Access requests and credential issues</li>
+<li>Data questions and clarification</li>
+<li>Variable definitions and coding</li>
+<li>Analysis consultation</li>
+<li>Security incident reporting</li>
+<li>Training registration</li>
+</ul>
+</section>
+<section id="compliance-monitoring" class="level3">
+<h3 class="anchored" data-anchor-id="compliance-monitoring">Compliance Monitoring</h3>
+<ul>
+<li>Regular audits of user activity</li>
+<li>Annual compliance reviews</li>
+<li>Update requirements as needed</li>
+<li>Violation reporting process</li>
+<li>Access suspension procedures</li>
+</ul>
 
 
 </section>

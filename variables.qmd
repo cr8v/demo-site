@@ -8,9 +8,92 @@ title: "Variables Dictionary"
 
 | Variable | Type | Description | Values |
 |----------|------|-------------|---------|
-| patient_id | INT | Unique identifier | Numeric |
-| age | INT | Patient age | 0-120 |
-| gender | VARCHAR | Patient gender | M/F |
+| patient_id | INT | Unique identifier for each patient | Numeric, auto-incrementing |
+| age | INT | Patient age in years at time of registration | 0-120 |
+| gender | VARCHAR(1) | Patient's biological sex at birth | 'M' = Male, 'F' = Female |
+| birth_date | DATE | Patient's date of birth | YYYY-MM-DD format |
+| race | VARCHAR(50) | Patient's self-reported race/ethnicity | White, Black, Asian, Hispanic, Other |
+| insurance | VARCHAR(50) | Primary insurance type | Medicare, Medicaid, Private, Self-pay |
+| zip_code | VARCHAR(5) | Patient's residential ZIP code | 5-digit US postal code |
+| marital_status | VARCHAR(20) | Patient's marital status | Single, Married, Divorced, Widowed |
+| language | VARCHAR(50) | Patient's primary language | English, Spanish, Other |
+| employment | VARCHAR(50) | Employment status | Employed, Unemployed, Retired, Student |
 
-### Clinical Variables
-[Additional variable documentation...]
+### Visit Variables 
+
+| Variable | Type | Description | Values |
+|----------|------|-------------|---------|
+| visit_id | INT | Unique identifier for each visit | Numeric, auto-incrementing |
+| patient_id | INT | Foreign key linking to patients table | References patient_id |
+| visit_date | DATE | Date of healthcare encounter | YYYY-MM-DD format |
+| visit_type | VARCHAR(50) | Category of healthcare visit | Outpatient, Emergency, Inpatient |
+| provider_id | INT | ID of primary care provider | References providers table |
+| facility_id | INT | Location where care was provided | References facilities table |
+| admission_date | DATE | Start date for inpatient stays | YYYY-MM-DD format |
+| discharge_date | DATE | End date for inpatient stays | YYYY-MM-DD format |
+| length_of_stay | INT | Days spent in hospital | Numeric (days) |
+| discharge_disposition | VARCHAR(50) | Discharge status/location | Home, SNF, Rehab, Expired |
+
+### Diagnosis Variables
+
+| Variable | Type | Description | Values |
+|----------|------|-------------|---------|
+| diagnosis_id | INT | Unique identifier for diagnosis | Numeric, auto-incrementing |
+| visit_id | INT | Foreign key linking to visits | References visit_id |
+| icd_code | VARCHAR(10) | ICD-10 diagnosis code | Valid ICD-10 code |
+| diagnosis_date | DATE | Date diagnosis was recorded | YYYY-MM-DD format |
+| primary_dx | BOOLEAN | Indicates if primary diagnosis | TRUE/FALSE |
+| chronic_flag | BOOLEAN | Indicates chronic condition | TRUE/FALSE |
+| severity | INT | Severity score of condition | 1-5 scale |
+| onset_date | DATE | When symptoms first appeared | YYYY-MM-DD format |
+| resolved_date | DATE | When condition resolved | YYYY-MM-DD format |
+| notes | TEXT | Clinical notes about diagnosis | Free text |
+
+### Medication Variables
+
+| Variable | Type | Description | Values |
+|----------|------|-------------|---------|
+| med_id | INT | Unique identifier for prescription | Numeric, auto-incrementing |
+| patient_id | INT | Foreign key linking to patients | References patient_id |
+| drug_name | VARCHAR(100) | Generic medication name | Standard drug names |
+| dosage | VARCHAR(50) | Prescribed medication dose | Includes unit (mg, mcg, etc) |
+| frequency | VARCHAR(50) | How often medication taken | QD, BID, TID, PRN, etc |
+| start_date | DATE | When prescription started | YYYY-MM-DD format |
+| end_date | DATE | When prescription ended | YYYY-MM-DD format |
+| active | BOOLEAN | Current prescription status | TRUE/FALSE |
+| prescriber_id | INT | Provider who prescribed med | References providers table |
+| pharmacy_id | INT | Dispensing pharmacy | References pharmacies table |
+| refills | INT | Number of refills remaining | 0-99 |
+| last_filled | DATE | Date of last dispensing | YYYY-MM-DD format |
+
+### Lab Results Variables
+
+| Variable | Type | Description | Values |
+|----------|------|-------------|---------|
+| lab_id | INT | Unique identifier for lab result | Numeric, auto-incrementing |
+| patient_id | INT | Foreign key linking to patients | References patient_id |
+| test_name | VARCHAR(100) | Name of laboratory test | Standard lab test names |
+| result_value | VARCHAR(50) | Numeric or categorical result | Depends on test type |
+| units | VARCHAR(20) | Units of measurement | mg/dL, mmol/L, etc |
+| ref_range_low | FLOAT | Lower limit of normal range | Numeric value |
+| ref_range_high | FLOAT | Upper limit of normal range | Numeric value |
+| collection_date | DATE | When sample was collected | YYYY-MM-DD format |
+| result_date | DATE | When results were available | YYYY-MM-DD format |
+| abnormal_flag | VARCHAR(1) | Result normality indicator | 'H'=High, 'L'=Low, 'N'=Normal |
+
+### Vital Signs Variables
+
+| Variable | Type | Description | Values |
+|----------|------|-------------|---------|
+| vital_id | INT | Unique identifier for vital signs | Numeric, auto-incrementing |
+| visit_id | INT | Foreign key linking to visits | References visit_id |
+| measure_date | DATE | When vitals were recorded | YYYY-MM-DD format |
+| temperature | FLOAT | Body temperature | Fahrenheit |
+| heart_rate | INT | Heart rate | Beats per minute |
+| blood_pressure_sys | INT | Systolic blood pressure | mmHg |
+| blood_pressure_dia | INT | Diastolic blood pressure | mmHg |
+| respiratory_rate | INT | Breathing rate | Breaths per minute |
+| oxygen_saturation | INT | Blood oxygen level | Percentage (0-100) |
+| height | FLOAT | Patient height | Inches |
+| weight | FLOAT | Patient weight | Pounds |
+| bmi | FLOAT | Body Mass Index | Calculated from height/weight |
