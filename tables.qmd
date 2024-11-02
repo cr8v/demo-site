@@ -6,9 +6,11 @@ title: "Tables Overview"
 #| label: setup
 #| include: false
 library(dplyr)
+library(tidyverse)
 library(reactable)
 rootdir <- "/home/rstudio/SALUS/_Inbox/01_Preprocessing/A01_데이터정리/"
 quarto_tables <- readRDS(sprintf("%sdata/processed/_objects/_rds/quarto_tables.rds", rootdir))
+list_cha <- readRDS(sprintf("%sdata/processed/_objects/_rds/list_cha.rds", rootdir))
 ```
 
 ## Database Structure
@@ -21,10 +23,30 @@ The SALUS healthcare research database consists of the following core tables:
 - **Record Count**: `r nrow(quarto_tables$table_participants)`
 
 ```{r}
+#| echo: false
+#| warning: false
 quarto_tables$table_participants %>% 
   head(5) %>% select(-BRTHDD) %>%
   reactable()
 ```
+
+:::{.callout-note}
+## Information
+- Patient IDs are anonymized and unique across all tables
+- All dates are stored in YYYY-MM-DD format
+- Missing values are coded as NA
+:::
+
+:::{.callout-warning}
+## Final Cleaning Notes
+- Patient IDs should be anonymized and standardized to SALUS ID (SID) format
+- Column names should be mapped to standardized naming conventions for research use:
+  - BRTHDD -> DATE_BIRTH
+  - ORDDD -> DATE_VISIT
+  - INQRFLAG -> SURVEY_TYPE
+  - TESTCD -> TEST_CODE
+- Missing values standardized to NA (., -, _, etc.)
+:::
 
 ### 2. Visits Table  
 - **Description**: Tracks all healthcare visit encounters
@@ -36,6 +58,27 @@ quarto_tables$table_participants %>%
 - **Primary Key**: survey_id
 - **Record Count**: 25,000 records
 - **Key Fields**: Survey type, responses, completion dates, scores
+
+```{r}
+#| warning: false
+#| echo: false
+#list_cha$summary$SALUS$RSLT$EXAM %>% 
+#  arrange(TESTNM_BASE, TESTNM_DETAIL) %>% 
+#  select(TESTNM_GROUP_NAME, TESTNM_BASE, TESTNM_DETAIL, TESTCD_LR, #N_TESTCD, N_TESTCD_C, N_TESTCD_G) %>% 
+#  separate(TESTNM_GROUP_NAME, into = c("TESTNM_GROUP", #"TESTNM_GROUP_DETAIL", "TESTNM_GROUP_DETAIL_2"), sep = "_", #remove = FALSE) %>% select(-TESTNM_GROUP_DETAIL_2, #-TESTNM_GROUP_NAME) %>%
+#  filter(!grepl("^OTHERS", TESTNM_GROUP)) %>% 
+#  distinct() %>%
+#  reactable(
+#    groupBy = c("TESTNM_GROUP", "TESTNM_GROUP_DETAIL"),
+#    defaultExpanded = FALSE
+#  )
+#list_cha$summary$SALUS$RSLT$UNIT %>% reactable()
+```
+
+```{r}
+#| echo: false
+#read.csv(sprintf("%sdata/processed/_objects/_csv/Neurodigm_code_survey.csv", rootdir)) %>% reactable(groupBy = "INQRFLAG")
+```
 
 ### 4. Measure Table
 - **Description**: Stores clinical measurements and vital signs

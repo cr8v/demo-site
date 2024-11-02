@@ -6,6 +6,7 @@ format:
     tbl-cap-location: top
 ---
 
+
 ## Standard Cleaning Procedures
 
 ### 1. Initial Data Assessment
@@ -137,6 +138,7 @@ See the full data dictionary for detailed variable specifications.
 
 
 
+
 ```{r}
 #| label: setup
 #| include: false
@@ -146,12 +148,14 @@ library(reactable)
 rootdir <- "/home/rstudio/SALUS/_Inbox/01_Preprocessing/A01_데이터정리/"
 ```
 
+
 :::{.callout-note}
 ## File Categories
 - **AINQ**: Inquiry data files
 - **RSLT**: Results data files
 - **JUDD**: Judgment data files
 :::
+
 
 ```{r}
 #| label: file-listing
@@ -306,7 +310,6 @@ cat("📌 Found", nrow(quarto_tables$table_participants %>% filter(is.na(DATE_BI
 
 ```
 
-
 ```{r}
 #| label: table-participants-age
 #| tbl-cap: "Participants with Invalid Birth Dates"
@@ -369,7 +372,9 @@ cat("\n🔍 Current age standards:\n",
 
 ```
 
+
 <!-- Registration form will be embedded here -->
 <div id="registration-form">
   <p class="text-center">Further cleaning steps will be added here ...</p>
 </div>
+

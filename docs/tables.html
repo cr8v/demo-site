@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -166,31 +132,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
         <li>
     <a class="dropdown-item" href="./cleaning.html">
- <span class="dropdown-text">Cleaning History</span></a>
+ <span class="dropdown-text">Data Cleaning Process</span></a>
   </li>  
     </ul>
   </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-db-insights" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-      <i class="bi bi-chart-line" role="img">
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./register.html"> <i class="bi bi-person-plus" role="img">
 </i> 
- <span class="menu-text">DB Insights</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-db-insights">    
-        <li>
-    <a class="dropdown-item" href="./eda.html">
- <span class="dropdown-text">EDA</span></a>
+<span class="menu-text">Register</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="./stats.html">
- <span class="dropdown-text">Statistical Analysis</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./viz.html">
- <span class="dropdown-text">Visualizations</span></a>
-  </li>  
-    </ul>
-  </li>
 </ul>
           </div> <!-- /navcollapse -->
           <div class="quarto-navbar-tools">
@@ -236,12 +188,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Record Count</strong>: 3466137</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>quarto_tables<span class="sc">$</span>table_participants <span class="sc">%&gt;%</span> </span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">5</span>) <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>BRTHDD) <span class="sc">%&gt;%</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">reactable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="reactable html-widget html-fill-item" id="htmlwidget-320c0a3ac444cacd7b77" style="width:auto;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-320c0a3ac444cacd7b77">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"PID_ANONY":["0003448032","0002446507","0002446519","0002446521","0002446523"],"SEX":["M","F","M","F","M"],"DATE_BIRTH":["1973-08-23","1967-10-13","1981-10-27","1968-05-01","1988-07-11"]},"columns":[{"id":"PID_ANONY","name":"PID_ANONY","type":"character"},{"id":"SEX","name":"SEX","type":"character"},{"id":"DATE_BIRTH","name":"DATE_BIRTH","type":"Date"}],"dataKey":"d9496c79a7fdce7b1f163d24ced7da33"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+<div class="reactable html-widget html-fill-item" id="htmlwidget-53cd71043c6bf13384b1" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-53cd71043c6bf13384b1">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"PID_ANONY":["0002840666","0002928337","0002937560","0003204191","0003215305"],"SEX":["M","M","M","F","F"],"DATE_BIRTH":["1977-08-16","1986-08-23","1965-08-04","1975-11-16","1970-05-03"]},"columns":[{"id":"PID_ANONY","name":"PID_ANONY","type":"character"},{"id":"SEX","name":"SEX","type":"character"},{"id":"DATE_BIRTH","name":"DATE_BIRTH","type":"Date"}],"dataKey":"2144f5dcbf3a2f9e3ad944318c90e026"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Information
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Patient IDs are anonymized and unique across all tables</li>
+<li>All dates are stored in YYYY-MM-DD format</li>
+<li>Missing values are coded as NA</li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Final Cleaning Notes
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Patient IDs should be anonymized and standardized to SALUS ID (SID) format</li>
+<li>Column names should be mapped to standardized naming conventions for research use:
+<ul>
+<li>BRTHDD -&gt; DATE_BIRTH</li>
+<li>ORDDD -&gt; DATE_VISIT</li>
+<li>INQRFLAG -&gt; SURVEY_TYPE</li>
+<li>TESTCD -&gt; TEST_CODE</li>
+</ul></li>
+<li>Missing values standardized to NA (., -, _, etc.)</li>
+</ul>
 </div>
 </div>
 </section>

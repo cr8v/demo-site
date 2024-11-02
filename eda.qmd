@@ -1,0 +1,155 @@
+---
+title: "Exploratory Data Analysis"
+format:
+  html:
+    code-fold: true
+    code-tools: true
+    toc: true
+execute:
+  warning: false
+  message: false
+---
+
+```{r}
+#| label: setup
+#| include: false
+library(dplyr)
+library(reactable)
+library(scales)
+rootdir <- "/home/rstudio/SALUS/_Inbox/01_Preprocessing/A01_데이터정리/"
+quarto_tables <- readRDS(sprintf("%sdata/processed/_objects/_rds/quarto_tables.rds", rootdir))
+```
+
+## Introduction
+
+This document contains exploratory data analysis of our dataset. We'll examine key variables, relationships, and patterns to better understand the data.
+
+## Patient Demographics
+
+### Sex Distribution
+
+```{r}
+quarto_tables$table_participants %>%
+  count(SEX) %>%
+  mutate(
+    pct = n / sum(n),
+    pct = scales::percent(pct, accuracy = 0.1),
+    SEX = case_when(
+      SEX == "F" ~ "Female", 
+      SEX == "M" ~ "Male",
+      TRUE ~ "Other/Unknown"
+    )
+  ) %>%
+  bind_rows(
+    summarise(., 
+      SEX = "Total",
+      n = sum(n),
+      pct = "100.0%"
+    )
+  ) %>%
+  reactable(
+    columns = list(
+      SEX = colDef(
+        name = "Sex",
+        style = list(fontWeight = "bold")
+      ),
+      n = colDef(
+        name = "Count",
+        format = colFormat(separators = TRUE)
+      ),
+      pct = colDef(
+        name = "Percentage",
+        style = list(color = "#2c5282", fontWeight = 500)
+      )
+    ),
+    defaultSorted = "n",
+    defaultSortOrder = "desc",
+    striped = TRUE,
+    highlight = TRUE,
+    bordered = TRUE,
+    compact = TRUE,
+    style = list(
+      fontFamily = "system-ui",
+      fontSize = "15px"
+    ),
+    defaultColDef = colDef(
+      align = "center"
+    ),
+    rowStyle = function(index) {
+      if (index == nrow(.) ) {  # Changed to use the current data frame
+        list(
+          backgroundColor = "#f0f4f8",
+          fontWeight = "bold",
+          borderTop = "2px solid #ccc"
+        )
+      }
+    }
+  )
+```
+
+### Age Distribution
+
+```{r}
+quarto_tables$table_participants %>%
+  mutate(
+    AGE = round(as.numeric(Sys.Date() - DATE_BIRTH) / 365.25),
+    AGE_GROUP = cut(AGE, 
+      breaks = c(-100, 20, 30, 40, 50, 60, 70, 80, 90, Inf),
+      labels = c("-20s", "20s", "30s", "40s", "50s", "60s", "70s", "80s", "90s+"),
+      right = FALSE)
+  ) %>%
+  filter(!is.na(AGE_GROUP)) %>%
+  count(AGE_GROUP) %>%
+  mutate(
+    pct = sprintf("%.1f%%", n/sum(n)*100)
+  ) %>%
+  bind_rows(
+    summarise(., 
+      AGE_GROUP = "Total",
+      n = sum(n),
+      pct = "100.0%"
+    )
+  ) %>%
+  reactable(
+    columns = list(
+      AGE_GROUP = colDef(
+        name = "Age Group",
+        style = list(fontWeight = "bold")
+      ),
+      n = colDef(
+        name = "Count",
+        format = colFormat(separators = TRUE)
+      ),
+      pct = colDef(
+        name = "Percentage",
+        style = list(color = "#2c5282", fontWeight = 500)
+      )
+    ),
+    defaultSorted = "AGE_GROUP",
+    defaultSortOrder = "asc",
+    striped = TRUE,
+    highlight = TRUE,
+    bordered = TRUE,
+    compact = TRUE,
+    style = list(
+      fontFamily = "system-ui",
+      fontSize = "15px"
+    ),
+    defaultColDef = colDef(
+      align = "center"
+    ),
+    rowStyle = function(index) {
+      if (index == nrow(.) ) {
+        list(
+          backgroundColor = "#f0f4f8",
+          fontWeight = "bold",
+          borderTop = "2px solid #ccc"
+        )
+      }
+    }
+  )
+```
+
+
+
+

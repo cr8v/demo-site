@@ -1,0 +1,67 @@
+---
+title: "Register for Access"
+---
+
+## SALUS Database Access Registration
+
+To request access to the SALUS Research Database, please complete the registration process below. Access is granted to qualified researchers who meet our eligibility requirements.
+
+### Eligibility Requirements
+
+- Must be affiliated with an academic institution or research organization
+- Must have current IRB approval for the proposed research
+- Must complete required HIPAA compliance training
+- Must agree to and sign our Data Use Agreement
+
+### Required Documentation
+
+Please prepare the following documents before starting your registration:
+
+1. **Institutional Affiliation Letter**
+   - Official letterhead
+   - Signed by department head or supervisor
+   - Current date within last 3 months
+
+2. **Research Protocol**
+   - IRB approval documentation
+   - Project summary
+   - Data requirements and justification
+
+3. **Training Certificates**
+   - HIPAA compliance certification
+   - Human subjects research training
+   - Data security awareness certification
+
+4. **Data Use Agreement**
+   - Signed by principal investigator
+   - Signed by institutional official
+   - All pages initialed
+
+### Registration Steps
+
+1. Complete the online registration form below
+2. Upload required documentation
+3. Submit for review
+4. Await approval notification (typical response within 10 business days)
+
+:::{.callout-warning}
+## Important Notes
+- Incomplete applications will not be processed
+- All documents must be current and valid
+- Access is granted for specific research projects only
+- Annual renewal required
+:::
+
+:::{.callout-tip}
+## Need Help?
+Contact our support team at research@saluscare.co.kr for:
+- Technical assistance
+- Questions about eligibility
+- Documentation requirements
+- Status inquiries
+:::
+
+<!-- Registration form will be embedded here -->
+<div id="registration-form">
+  <p class="text-center">Registration form loading...</p>
+</div>

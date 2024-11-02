@@ -25,17 +25,12 @@ website:
         menu:
           - text: "Usage Guidelines"
             file: guidelines.qmd
-          - text: "Cleaning History"
+          - text: "Data Cleaning Process"
             file: cleaning.qmd
-      - text: "DB Insights"
-        icon: chart-line
-        menu:
-          - text: "EDA"
-            file: eda.qmd
-          - text: "Statistical Analysis"
-            file: stats.qmd
-          - text: "Visualizations"
-            file: viz.qmd
+    right:
+      - text: "Register"
+        icon: person-plus
+        file: register.qmd
 format:
   html:
     theme: cosmo

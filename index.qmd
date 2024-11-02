@@ -4,29 +4,94 @@ title: "SALUS CATALOG"
 
 ## Welcome to SALUS Research Database
 
-This catalog provides comprehensive documentation for the SALUS healthcare research database, containing over millions of health screening records across 9 years of multiple integrated tables.
+The SALUS Research Database represents an essential pillar for advancing healthcare research and data-driven innovation. This catalog provides comprehensive documentation for over millions of health screening records across 9 years of multiple integrated tables.
+
+### Database Overview
+
+SALUS is a sophisticated data collection and dissemination platform, purpose-built to support cutting-edge healthcare research. Our system captures and integrates data from:
+
+- Extensive health checkups
+- Diagnostic records 
+- Patient surveys
+- Clinical follow-ups
 
 ### Key Features
-- Comprehensive patient demographics and clinical data
-- Longitudinal healthcare visits and outcomes
-- Patient-reported survey responses
-- Clinical measurements and vital signs
-- Laboratory results and diagnostics
-- Healthcare provider information
+
+- **Comprehensive Clinical Data**
+  - Patient demographics
+  - Healthcare visits and outcomes
+  - Survey responses
+  - Clinical measurements and vital signs
+  - Laboratory results and diagnostics
+  - Provider information
+
+- **Research Infrastructure**
+  - Secure collaborative environment
+  - Data analysis tools and pipelines
+  - Support for longitudinal studies
+  - Quality-assured data integration
 
 :::{.callout-note}
 ## Quick Navigation
 1. Check [Tables Overview](tables.qmd) for database structure and table relationships
-2. Browse [Variables](variables.qmd) for detailed field descriptions
+2. Browse [Variables](variables.qmd) for detailed field descriptions  
 3. Review [Usage Guidelines](guidelines.qmd) for access requirements and security protocols
 4. Learn about our [Data Cleaning Process](cleaning.qmd) and quality standards
+5. Find [Frequently Asked Questions](faq.qmd) for common questions
 :::
 
 :::{.callout-important}
 ## Access Requirements
 - IRB approval required
-- HIPAA compliance training
+- HIPAA compliance training  
 - Signed Data Use Agreement
 - Security certification
+
 See [Usage Guidelines](guidelines.qmd) for complete requirements.
 :::
+
+SALUS’s robust platform not only enables data access and analysis but also supports data security and compliance, ensuring that research can be conducted within a safe and efficient environment. By drawing on the strengths of such models, SALUS aspires to contribute to the expansion of healthcare research capabilities and the overall enhancement of national and global medical research competitiveness.
+
+### Data Governance and Compliance
+
+Ensuring the privacy and security of patient data is our top priority. SALUS adheres to stringent data governance policies, including:
+
+- **Data Security Measures**
+  - Encryption of data at rest and in transit
+  - Multi-factor authentication for user access
+  - Regular security assessments and vulnerability testing
+
+- **Compliance Standards**
+  - HIPAA (Health Insurance Portability and Accountability Act)
+  - GDPR (General Data Protection Regulation) where applicable
+  - Institutional policies and ethical guidelines
+
+### Frequently Asked Questions (FAQ)
+
+Find answers to common questions in our [FAQ section](faq.qmd), including:
+
+- How to request access to the database
+- Data citation guidelines
+- Troubleshooting common issues
+
+### Contact Information
+
+For further assistance or inquiries:
+
+- **Email:** research@saluscare.co.kr
+- **Phone:** +82 10 1234 5678
+
+### Future Developments
+
+We are continually working to enhance the SALUS Database:
+
+- **Upcoming Features**
+  - Integration with new data sources (Genomics, Imaging, etc.)
+  - Advanced analytics tools
+
+- **Feedback**
+  - We welcome your suggestions for improvements. Contact us at [research@saluscare.co.kr](mailto:research@saluscare.co.kr).
+
+---
+
+SALUS's robust platform not only facilitates secure data access and analysis but also ensures compliance with data protection regulations. By providing a comprehensive and secure research environment, SALUS aims to enhance healthcare research capabilities and contribute to the advancement of medical science on both national and global scales.

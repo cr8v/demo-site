@@ -1,0 +1,81 @@
+---
+title: "Frequently Asked Questions"
+---
+
+## Data Access
+
+### How do I request access to the SALUS database?
+To request access, you must:
+
+1. Have IRB approval for your research project
+2. Complete HIPAA compliance training
+3. Submit a Data Use Agreement (DUA)
+4. Obtain security certification
+5. Email completed documents to research@saluscare.co.kr
+
+### How long does the approval process take?
+The typical review process takes 2-3 weeks after all required documents are received.
+
+## Data Usage
+
+### What are the data citation requirements?
+When publishing research using SALUS data, please cite:
+
+> SALUS Research Database [Year of data access]. SALUS Healthcare Research Institute, Seoul, Korea.
+
+### Can I share SALUS data with collaborators?
+No. Each researcher needs individual approval and must complete the access requirements. Data sharing is prohibited under the DUA.
+
+### What tools are available for data analysis?
+SALUS provides:
+
+- Secure analysis environment
+- Common statistical software (R, Python, SAS)
+- Data extraction tools
+- Analysis templates
+
+## Technical Support
+
+### How do I report technical issues?
+For technical support:
+
+1. Email: support@saluscare.co.kr
+2. Include your user ID and detailed description
+3. Attach screenshots if relevant
+
+### What are the system requirements?
+- Modern web browser (Chrome, Firefox, Safari)
+- Secure internet connection
+- Multi-factor authentication setup
+
+## Data Content
+
+### How often is the database updated?
+The database is updated quarterly with new records after quality assurance review.
+
+### What is the data retention period?
+Records are retained for 10 years from date of collection, following privacy regulations.
+
+### Are there any known data limitations?
+- Some historical records may have missing fields
+- Laboratory test methods may vary by collection site
+- Patient follow-up data may be incomplete
+
+## Privacy & Security
+
+### How is patient privacy protected?
+- All data is de-identified
+- Access is strictly controlled
+- Activities are logged and monitored
+- Regular security audits
+- Encryption of data in transit and at rest
+
+### What happens if there's a security breach?
+We have established protocols for:
+
+1. Immediate access suspension
+2. Incident investigation
+3. Stakeholder notification
+4. Remediation measures
+
+For additional questions not covered here, please contact research@saluscare.co.kr.
